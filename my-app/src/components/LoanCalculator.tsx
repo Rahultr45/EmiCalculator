@@ -14,16 +14,14 @@ const LoanCalculator = () => {
     totalPayment: "",
   });
 
-  // Helper function to round numbers to nearest whole number
   const roundNumber = (num: number): number => {
     return Math.round(num);
   };
 
-  // Helper function to format currency with commas and no decimal places
   const formatCurrency = (value: string | number): string => {
     if (value === "" || value === "Invalid input") return value as string;
     const numValue = typeof value === 'string' ? parseFloat(value) : value;
-    return `${roundNumber(numValue).toLocaleString()}`;
+    return `₹${roundNumber(numValue).toLocaleString()}`;
   };
 
   const calculateLoan = () => {
@@ -33,7 +31,6 @@ const LoanCalculator = () => {
     const months = parseFloat(loanDuration) * 12;
 
     if (!isNaN(principal) && !isNaN(annualRate) && !isNaN(months)) {
-      // Monthly Payment calculation
       const monthlyPayment =
         (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
         (Math.pow(1 + monthlyRate, months) - 1);
@@ -41,7 +38,6 @@ const LoanCalculator = () => {
       const totalPayment = monthlyPayment * months;
       const totalInterest = totalPayment - principal;
 
-      // Round all values before setting state
       setResults({
         monthlyPayment: roundNumber(monthlyPayment).toString(),
         totalInterest: roundNumber(totalInterest).toString(),
@@ -67,7 +63,6 @@ const LoanCalculator = () => {
     });
   };
 
-  // Data for pie chart with rounded values
   const getPieChartData = () => {
     if (results.totalInterest === "" || results.totalInterest === "Invalid input") {
       return [];
@@ -95,9 +90,8 @@ const LoanCalculator = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left side - Calculator inputs */}
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[48px]">
+          <div className="space-y-5">
             <div className="space-y-2">
               <label className="text-sm font-medium">Loan Amount </label>
               <input
@@ -132,29 +126,29 @@ const LoanCalculator = () => {
             </div>
 
             <div className="flex gap-2 pt-2">
-              <Button onClick={calculateLoan} variant="outline" className="flex-1">
+              <Button onClick={calculateLoan} variant="outline" className="flex-1 hover:bg-[#EAF6FF]">
                 Calculate
               </Button>
-              <Button onClick={refreshInputs} variant="outline" className="flex-1">
+              <Button onClick={refreshInputs} variant="outline" className="flex-1 hover:bg-[#EAF6FF]">
                 Reset
               </Button>
             </div>
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-[30px] space-y-4">
               <div className="flex justify-between p-3 bg-gray-100 rounded-md">
-                <span className="font-medium">Monthly Payment:</span>
+                <span className="font-medium text-[16px]">Monthly Payment:</span>
                   <span className="font-bold text-blue-600">
                   {formatCurrency(results.monthlyPayment)}
                 </span>
               </div>
               <div className="flex justify-between p-3 bg-gray-100 rounded-md">
-                <span className="font-medium">Total Interest:</span>
+                <span className="font-medium text-[16px]">Total Interest:</span>
                 <span className="font-bold text-blue-600">
                   {formatCurrency(results.totalInterest)}
                 </span>
               </div>
               <div className="flex justify-between p-3 bg-gray-100 rounded-md">
-                <span className="font-medium">Total Repayment:</span>
+                <span className="font-medium text-[16px]">Total Repayment:</span>
                 <span className="font-bold text-blue-600">
                   {formatCurrency(results.totalPayment)}
                 </span>
@@ -162,7 +156,6 @@ const LoanCalculator = () => {
             </div>
           </div>
 
-          {/* Right side - Pie Chart */}
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-lg font-semibold mb-4">Loan Breakdown</h3>
             <div className="w-full h-[300px]">
@@ -172,7 +165,7 @@ const LoanCalculator = () => {
                     data={getPieChartData()}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
+                    innerRadius={70}
                     outerRadius={100}
                     fill="#8884d8"
                     paddingAngle={5}
@@ -186,7 +179,7 @@ const LoanCalculator = () => {
                     ))}
                   </Pie>
                   <Tooltip 
-                    formatter={(value) => `${value.toLocaleString()}`}
+                    formatter={(value) => `₹${value.toLocaleString()}`}
                   />
                   <Legend />
                 </PieChart>
