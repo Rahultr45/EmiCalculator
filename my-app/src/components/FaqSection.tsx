@@ -34,7 +34,7 @@ const FAQPage = () => {
 
   return (
     <div className=" mx-auto max-w-[75%]  mt-[72px]">
-      <h1 className="text-[50px] text-[#34835a] font-bold mb-8">Frequently Asked Questions</h1>
+      <h1 className="text-[38px] text-[#1D2D35] font-bold mb-8">Frequently Asked Questions</h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div 

@@ -65,14 +65,25 @@ const LoanCalculator = () => {
 
   const getPieChartData = () => {
     if (results.totalInterest === "" || results.totalInterest === "Invalid input") {
-      return [];
+      // Return default data when no calculation is performed
+      return [
+        {
+          name: "Principal Amount",
+          value: 100,
+          class: "font-bold"
+        },
+        {
+          name: "Total Interest",
+          value: 0
+        },
+      ];
     }
 
     return [
       {
         name: "Principal Amount",
         value: roundNumber(parseFloat(loanAmount)),
-       class: "font-bold " 
+        class: "font-bold"
       },
       {
         name: "Total Interest",
@@ -84,9 +95,9 @@ const LoanCalculator = () => {
   const COLORS = ["#3b82f6", "#ef4444"];
 
   return (
-    <Card className="w-full max-w-[75%] bg-[#eef2f0] mx-auto bg-transparent/80">
+    <Card className="w-full max-w-[70%] mx-auto bg-[#ecfff4] border-[#27ae60]  border-[1px]">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center text-[#34835a]">
+        <CardTitle className="text-2xl font-bold text-center text-[#1D2D35]">
           Bank Loan EMI Calculator
         </CardTitle>
       </CardHeader>
@@ -94,7 +105,7 @@ const LoanCalculator = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[48px]">
           <div className="space-y-5">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-[#34835a]">Loan Amount </label>
+              <label className="text-sm font-medium text-[#1D2D35]">Loan Amount </label>
               <input
                 type="number"
                 placeholder="Enter loan amount"
@@ -105,7 +116,7 @@ const LoanCalculator = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-[#34835a]">Interest Rate (%)</label>
+              <label className="text-sm font-medium text-[#1D2D35]">Interest Rate (%)</label>
               <input
                 type="number"
                 placeholder="Enter interest rate"
@@ -116,7 +127,7 @@ const LoanCalculator = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-[#34835a]">Loan Duration (Years)</label>
+              <label className="text-sm font-medium text-[#1D2D35]">Loan Duration (Years)</label>
               <input
                 type="number"
                 placeholder="Enter loan duration"
@@ -127,29 +138,29 @@ const LoanCalculator = () => {
             </div>
 
             <div className="flex gap-2 pt-2">
-              <Button onClick={calculateLoan} variant="outline" className="flex-1 text-[#34835a] bg-gray-100 hover:bg-[#EDEDED]">
+              <Button onClick={calculateLoan} variant="outline" className="flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]">
                 Calculate
               </Button>
-              <Button onClick={refreshInputs} variant="outline" className="flex-1 text-[#34835a] bg-gray-100 hover:bg-[#EDEDED]">
+              <Button onClick={refreshInputs} variant="outline" className="flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]">
                 Reset
               </Button>
             </div>
 
             <div className="mt-[30px] space-y-4">
               <div className="flex justify-between p-3 w-full  bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <span className="font-medium text-[16px] text-[#34835a]">Monthly Payment:</span>
+                <span className="font-medium text-[16px] text-[#1D2D35]">Monthly Payment:</span>
                   <span className="font-bold text-blue-600">
                   {formatCurrency(results.monthlyPayment)}
                 </span>
               </div>
               <div className="flex justify-between p-3 w-full  bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <span className="font-medium text-[16px] text-[#34835a]">Total Interest:</span>
+                <span className="font-medium text-[16px] text-[#1D2D35]">Total Interest:</span>
                 <span className="font-bold text-blue-600">
                   {formatCurrency(results.totalInterest)}
                 </span>
               </div>
               <div className="flex justify-between p-3 w-full  bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <span className="font-medium text-[16px] text-[#34835a]">Total Repayment:</span>
+                <span className="font-medium text-[16px] text-[#1D2D35]">Total Repayment:</span>
                 <span className="font-bold text-blue-600">
                   {formatCurrency(results.totalPayment)}
                 </span>
@@ -158,7 +169,7 @@ const LoanCalculator = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <h3 className="text-lg font-semibold mb-4 text-[#34835a]">Loan Portfolio </h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#1D2D35]">Loan Portfolio</h3>
             <div className="w-full h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -179,7 +190,8 @@ const LoanCalculator = () => {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip contentStyle={{backgroundColor: '#F3F4F6', textAlign:"center", borderRadius: '8px'}}
+                  <Tooltip 
+                    contentStyle={{backgroundColor: '#F3F4F6', textAlign:"center", borderRadius: '8px'}}
                     formatter={(value) => `₹ ${value.toLocaleString()}`}
                   />
                   <Legend />
