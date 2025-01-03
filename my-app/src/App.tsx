@@ -1,14 +1,19 @@
-import React from 'react';
-import InterestRateList from './components/InterestRateList.tsx';
-import LoanCalculator from './components/LoanCalculator.tsx';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/emiCalculator.tsx";
+import About from "./pages/aboutUs.tsx";
+import Navbar from './components/Navbar'
+import NotFound from './pages/404'
 const App: React.FC = () => {
   return (
-    <div className=" flex flex-col items-center justify-center min-h-screen  mx-auto px-4 mt-[80px]">
-      <h2 className="text-[#2E2E2E] text-center font-bold text-4xl mb-[48px]">Bank Interest Rate Management</h2>
-      <LoanCalculator />
-      <InterestRateList />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutUs" element={<About />} />
+        <Route path="*" element={<NotFound /> } />
+      </Routes>
+    </Router>
   );
 };
 

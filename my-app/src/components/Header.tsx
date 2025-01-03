@@ -40,10 +40,10 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-[#EDEDED] rounded-[6px] shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#dcefe5] rounded-[6px] shadow-sm">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Loan Management</span>
             <img
               alt=""
@@ -110,7 +110,7 @@ export default function Example() {
           <a href="#" className="text-[16px] font-semibold text-gray-800 hover:text-black">
             Features
           </a>
-          <a href="#" className="text-[16px] font-semibold text-gray-800 hover:text-black">
+          <a href="/aboutUs" className="text-[16px] font-semibold text-gray-800 hover:text-black">
             About Us
           </a>
         </PopoverGroup>
