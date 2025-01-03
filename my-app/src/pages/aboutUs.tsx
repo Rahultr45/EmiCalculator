@@ -1,67 +1,74 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+// src/pages/AboutUs.tsx
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-interface FAQItem {
-  question: string;
-  answer: string;
+const AboutUs: React.FC = () => {
+  return (
+    <div className="max-w-4xl bg-[#eef2f0] mx-auto bg-transparent/40  px-4 py-8 mt-[70px]">
+      <h1 className="text-3xl font-bold mb-6">About Our EMI Calculator</h1>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+        <p className="text-gray-700 mb-4">
+          We're dedicated to making financial decisions easier for everyone. Our EMI (Equated Monthly Installment) 
+          calculator helps you plan your loans and understand your monthly commitments before taking financial decisions.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">What is EMI?</h2>
+        <p className="text-gray-700 mb-4">
+          EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a 
+          specified date each month. EMIs are applied to both interest and principal each month so that over 
+          a specified number of years, the loan is paid off in full.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">How Our Calculator Helps</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-xl font-semibold mb-2">Accurate Calculations</h3>
+            <p className="text-gray-700">
+              Our calculator uses precise mathematical formulas to determine your exact monthly payment 
+              obligations based on your loan amount, interest rate, and tenure.
+            </p>
+          </div>
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-xl font-semibold mb-2">Easy to Use</h3>
+            <p className="text-gray-700">
+              With our user-friendly interface, you can quickly input your loan details and get instant 
+              results, making financial planning simpler.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Types of Loans We Cover</h2>
+        <ul className="list-disc list-inside space-y-2 text-gray-700">
+          <li>Home Loans</li>
+          <li>Personal Loans</li>
+          <li>Car Loans</li>
+          <li>Education Loans</li>
+          <li>Business Loans</li>
+        </ul>
+      </section>
+
+      <section className="bg-blue-50 p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">Try Our Calculator</h2>
+        <p className="text-gray-700 mb-4">
+          Ready to calculate your EMI? Use our calculator to get started with your loan planning.
+        </p>
+        <Link 
+          to="/" 
+          className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors"
+        >
+          Go to Calculator
+        </Link>
+      </section>
+    </div>
+  )
 }
 
-const FAQPage = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const faqs: FAQItem[] = [
-    {
-      question: "What is EMI?",
-      answer: "EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are used to pay off both the principal and interest on a loan, so that over a specified number of years, the loan is fully paid off along with interest."
-    },
-    {
-      question: "How is EMI calculated?",
-      answer: "EMI is calculated using the formula: EMI = P × r × (1 + r)^n/((1 + r)^n - 1), where P is the principal amount, r is the interest rate per month, and n is the total number of months."
-    },
-    {
-      question: "What factors affect my EMI?",
-      answer: "Your EMI is affected by three main factors: the principal loan amount, the interest rate, and the loan tenure (duration). A higher loan amount or interest rate will increase your EMI, while a longer loan tenure will decrease your monthly EMI but increase the total interest paid."
-    },
-    {
-      question: "Can I make prepayments to reduce my EMI?",
-      answer: "Yes, making prepayments can help reduce your future EMIs or loan tenure. However, some loans may have prepayment penalties, so it's important to check your loan terms before making additional payments."
-    }
-  ];
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div 
-            key={index}
-            className="border rounded-lg overflow-hidden"
-          >
-            <button
-              className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center"
-              onClick={() => toggleFAQ(index)}
-            >
-              <span className="font-medium">{faq.question}</span>
-              {openIndex === index ? (
-                <ChevronUp className="w-5 h-5 text-gray-500" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-gray-500" />
-              )}
-            </button>
-            {openIndex === index && (
-              <div className="px-6 py-4 bg-white">
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default FAQPage;
+export default AboutUs

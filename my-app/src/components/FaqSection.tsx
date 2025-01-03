@@ -1,70 +1,67 @@
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
-
-const faq =() => {
-
-
-return(
-<div
-  className="mx-auto relative   md:bg-[linear-gradient(180deg,_#0C0D11_0%,_#07080A_12.66%)] md:pt-[120px] pt-[60px] md:pb-[240px] pb-[100px]"
-//   style="border-image-source: linear-gradient(180deg, #171923 0%, rgba(23, 25, 35, 0) 100%); border-image-slice: 1;"
->
-<div className="absolute right-[20px] lg:bottom-[160px] md:bottom-[60px]">
-  {/* <img src={FaqImg.src}  className="max-w-[196px]  lg:block hidden h-auto" alt="faq flower image" /> */}
-</div>
-  <div className=" mx-auto max-w-[1270px] md:p-[40px] p-[16px]">
-    <div className="flex justify-center mb-[24px]">
-      <div className="bg-[#67E0F926] rounded-[24px]">
-        {/* <SectionTitleV3
-        iconSrc={Faq.src}alt="Faq Icon"
-        heading="FAQs"
-        /> */}
-      </div>
-    </div>
-    <div
-      className="isolate overflow-hidden mb-[56px] px-0 sm:px-0 lg:flex flex-col lg:gap-x-[0] gap-x-[44px] lg:pl-[44px] pr-[0px] lg:pt-0"
-    >
-      {/* <SectionHeader heading="Got questions? Find answers here" /> */}
-    </div>
-    <div className="flex justify-center">
-      <div className="relative lg:max-w-[850px] md:max-w-[740px] max-w-[540px]">
-        <FaqItem
-        question="What is Hootz AI?"
-        answer=" Hootz is your friendly AI companion for Mac that helps you focus. Like a supportive friend, it blocks distractions, plays focus music, and gently nudges you to stay on track."
-        />
-        <FaqItem
-        question="Who is Hootz for?"
-        answer="Hootz is for anyone who wants to in increase their focus and productivity - whether you're a student, writer, developer, designer, founder, or just someone who wants to get more done."
-        />
-        <FaqItem
-        question="How does it block distractions?"
-        answer=" When you start a focus session, Hootz automatically blocks distracting apps and websites you've selected. It stays active until your session ends."
-        />
-        <FaqItem
-        question="Can I customize which apps and sites to block?"
-        answer="Yes! You can create your own blocklist of apps and websites that distract you."
-        />       
-        <FaqItem
-        question="How does it track my productivity?"
-        answer=" Hootz gives you insights about your focus sessions, showing when you're most productive and how well you stay focused."
-        />        
-        <FaqItem
-        question="Is my data private?"
-        answer="Yes, your data is stored locally on your Mac and is never shared."
-        />
-        
-        <FaqItem
-        question="Is there a free trial?"
-        answer=" Yes, you can try Hootz free for 7 days with all features included."
-        />
-        
-        <FaqItem
-        question="What happens after the trial?"
-        answer="You can subscribe monthly or annually to continue using all features."
-        />
-      </div>
-    </div>
-  </div>
-</div>
-)
+interface FAQItem {
+  question: string;
+  answer: string;
 }
-export default faq
+
+const FAQPage = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs: FAQItem[] = [
+    {
+      question: "What is EMI?",
+      answer: "EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are used to pay off both the principal and interest on a loan, so that over a specified number of years, the loan is fully paid off along with interest."
+    },
+    {
+      question: "How is EMI calculated?",
+      answer: "EMI is calculated using the formula: EMI = P × r × (1 + r)^n/((1 + r)^n - 1), where P is the principal amount, r is the interest rate per month, and n is the total number of months."
+    },
+    {
+      question: "What factors affect my EMI?",
+      answer: "Your EMI is affected by three main factors: the principal loan amount, the interest rate, and the loan tenure (duration). A higher loan amount or interest rate will increase your EMI, while a longer loan tenure will decrease your monthly EMI but increase the total interest paid."
+    },
+    {
+      question: "Can I make prepayments to reduce my EMI?",
+      answer: "Yes, making prepayments can help reduce your future EMIs or loan tenure. However, some loans may have prepayment penalties, so it's important to check your loan terms before making additional payments."
+    }
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className=" mx-auto max-w-[75%]  mt-[72px]">
+      <h1 className="text-[50px] text-[#34835a] font-bold mb-8">Frequently Asked Questions</h1>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <div 
+            key={index}
+            className="border rounded-lg  overflow-hidden"
+          >
+            <button
+              className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center"
+              onClick={() => toggleFAQ(index)}
+            >
+              <span className="font-medium">{faq.question}</span>
+              {openIndex === index ? (
+                <ChevronUp className="w-5 h-5 text-gray-500" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-gray-500" />
+              )}
+            </button>
+            {openIndex === index && (
+              <div className="px-6 py-4 bg-white">
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default FAQPage;
