@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { CardTitle } from './ui/card';
 
 interface FAQItem {
   question: string;
@@ -33,23 +34,25 @@ const FAQPage = () => {
   };
 
   return (
-    <div className=" mx-auto max-w-[75%]  mt-[72px]">
-      <h1 className="text-[38px] text-[#1D2D35] font-bold mb-8">Frequently Asked Questions</h1>
+    <div className="container mx-auto max-w-[70%] my-[120px]">
+       <CardTitle className=" text-center text-[#1D2D35] mb-[50px]">
+          <h3>We’re Here to Help [FAQ]</h3>
+        </CardTitle>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div 
             key={index}
-            className="border rounded-lg  overflow-hidden"
+            className="border rounded-lg w-full overflow-hidden"
           >
             <button
               className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="font-medium">{faq.question}</span>
+              <span className="font-medium text-gray-900">{faq.question}</span>
               {openIndex === index ? (
-                <ChevronUp className="w-5 h-5 text-gray-500" />
+                <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-gray-500" />
+                <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
               )}
             </button>
             {openIndex === index && (
