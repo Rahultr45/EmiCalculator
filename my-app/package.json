@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "homepage": "https://Rahultr45.github.io/emiCalculator/"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
