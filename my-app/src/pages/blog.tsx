@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Search, Calendar, Clock, ChevronRight, Star, TrendingUp, ArrowLeft } from 'lucide-react';
-
 interface Post {
   id: number;
   title: string;
@@ -65,9 +64,9 @@ const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
-  const categories = [
+   const categories = [
     { id: 'all', name: 'All Posts' },
-    { id: 'loans', name: 'Loan Basics' },
+    { id: 'loans', name: 'Loan Basics', href: '/loanBasics' },
     { id: 'tips', name: 'EMI Tips' },
     { id: 'finance', name: 'Personal Finance' },
     { id: 'investing', name: 'Investing' },
@@ -82,7 +81,7 @@ const BlogPage = () => {
       readTime: "5 min read",
       date: "Jan 5, 2025",
       image: "./src/assets/blog-image/what-is-emi.png",
-      featured: true
+      featured: true,
     },
     {
       id: 2,
@@ -159,17 +158,31 @@ const handlePostClick: PostClickHandler = (post) => {
           {/* Categories */}
           <div className="mt-6 flex space-x-4 overflow-x-auto pb-2">
             {categories.map(category => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${
-                  selectedCategory === category.id
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category.name}
-              </button>
+              category.href ? (
+                <a
+                  key={category.id}
+                  href={category.href}
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${
+                    selectedCategory === category.id
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category.name}
+                </a>
+              ) : (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${
+                    selectedCategory === category.id
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              )
             ))}
           </div>
         </div>

@@ -20,11 +20,11 @@ const FAQPage = () => {
       answer: "EMI is calculated using the formula: EMI = P × r × (1 + r)^n/((1 + r)^n - 1), where P is the principal amount, r is the interest rate per month, and n is the total number of months."
     },
     {
-      question: "What factors affect my EMI?",
+      question: "What factors affect EMI?",
       answer: "Your EMI is affected by three main factors: the principal loan amount, the interest rate, and the loan tenure (duration). A higher loan amount or interest rate will increase your EMI, while a longer loan tenure will decrease your monthly EMI but increase the total interest paid."
     },
     {
-      question: "Can I make prepayments to reduce my EMI?",
+      question: "Can I make prepayments to reduce EMI?",
       answer: "Yes, making prepayments can help reduce your future EMIs or loan tenure. However, some loans may have prepayment penalties, so it's important to check your loan terms before making additional payments."
     }
   ];
@@ -34,7 +34,7 @@ const FAQPage = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-[70%] my-[120px]">
+    <div className="container mx-auto md:max-w-[70%] max-w-[95%] my-[120px]">
        <CardTitle className=" text-center text-[#1D2D35] mb-[50px]">
           <h3>We’re Here to Help [FAQ]</h3>
         </CardTitle>

@@ -126,8 +126,8 @@ Date: ${review.date}`,
   };
 
   return (
-    <Card className="w-full max-w-[70%] mx-auto">
-      <div className="mt-12">
+    <Card className="w-full md:max-w-[70%] max-w-[95%] mb-[72px] mx-auto">
+      <div className=" md:p-[16px] p-[10px]">
         <div className="flex justify-center items-center mb-8">
           <h3 className="text-2xl font-semibold text-center text-[#1D2D35]">
             Leave A Review
@@ -136,9 +136,9 @@ Date: ${review.date}`,
 
         <form
           onSubmit={handleReviewSubmit}
-          className="mb-[50px] bg-white p-8 rounded-lg shadow-sm"
+          className=" bg-white rounded-lg shadow-sm"
         >
-          <div className="space-y-4">
+          <div className="space-y-4 p-[8px] ">
             <div>
               <label className="block text-sm font-medium text-[#1D2D35] mb-[12px]">
                 Your Name
@@ -202,11 +202,11 @@ Date: ${review.date}`,
           </div>
         </form>
 
-        <div className="space-y-6 mb-[32px]">
+        <div className="space-y-6  mb-[32px] mt-[32px]">
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-gray-100 p-6 m-[32px] rounded-lg shadow-sm"
+              className="bg-gray-100 md:p-[24px] p-[12px] rounded-lg shadow-sm"
             >
               <div className="flex justify-between items-start mb-2">
                 <div>

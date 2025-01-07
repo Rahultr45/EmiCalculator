@@ -109,7 +109,7 @@ const LoanCalculator = () => {
   const COLORS = ["#3b82f6", "#ef4444"];
 
   return (
-    <Card className="w-full max-w-[70%] mx-auto bg-[#ecfff4] border-[#27ae60]  border-[1px]">
+    <Card className="w-full md:max-w-[70%] max-w-[95%] mx-auto ">
       <CardHeader>
         <CardTitle className=" text-center text-[#1D2D35]">
           <h3>Bank Loan EMI Calculator</h3>
@@ -197,7 +197,7 @@ const LoanCalculator = () => {
                 <span className="font-medium text-[16px] text-[#1D2D35]">
                   Total Interest:
                 </span>
-                <span className="font-bold text-blue-600">
+                <span className="font-bold text-red-600">
                   {formatCurrency(results.totalInterest)}
                 </span>
               </div>

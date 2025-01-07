@@ -4,6 +4,7 @@ import Home from "./pages/emiCalculator.tsx";
 import About from "./pages/aboutUs.tsx";
 import Blog from "./pages/blog.tsx";
 import Features from "./pages/features.tsx";
+import LoanBasics from "./pages/blog/loanBasics.tsx";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/404";
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/features" element={<Features />} />
+        <Route path="/loanBasics" element={<LoanBasics />} />
       </Routes>
     </Router>
   );
