@@ -36,9 +36,10 @@ const LoanCalculator = () => {
     const annualRate = parseFloat(interestRate) / 100;
     const monthlyRate = annualRate / 12;
     // Convert duration to months based on selected type
-    const months = durationType === "years" 
-      ? parseFloat(loanDuration) * 12 
-      : parseFloat(loanDuration);
+    const months =
+      durationType === "years"
+        ? parseFloat(loanDuration) * 12
+        : parseFloat(loanDuration);
 
     if (!isNaN(principal) && !isNaN(annualRate) && !isNaN(months)) {
       const monthlyPayment =

@@ -19,10 +19,7 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
+import { PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
 
 const products = [
   {
@@ -91,26 +88,30 @@ export default function Example() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-        <a
+          <a
             href="/features"
-            className="text-[18px] font-semibold text-gray-800 hover:text-black"
+            className="text-[16px] font-semibold text-gray-800 hover:text-black"
           >
             Features
           </a>
           <a
             href="/blog"
-            className="text-[18px] font-semibold text-gray-800 hover:text-black"
+            className="text-[16px] font-semibold text-gray-800 hover:text-black"
           >
             Blog
           </a>
           <a
             href="/aboutUs"
-            className="text-[18px] font-semibold text-gray-800 hover:text-black"
+            className="text-[16px] font-semibold text-gray-800 hover:text-black"
           >
             About Us
           </a>
         </PopoverGroup>
-       
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="/tryEmiTips" className="text-[16px] font-semibold text-gray-900 border border-[green] bg-[#27ae60] px-[12px] py-[8px] rounded-[10px]">
+            Try Our EMI Tips <span aria-hidden="true"></span>
+          </a>
+        </div>
       </nav>
       <Dialog
         open={mobileMenuOpen}

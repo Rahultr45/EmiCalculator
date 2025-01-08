@@ -1,4 +1,3 @@
-
 const FeaturesPage = () => {
   return (
     <div className="md:max-w-[70%] max-w-[90%] bg-[#ecfff4] border-[#27ae60]  border-[1px] mx-auto bg-transparent/10  px-6 py-12 mt-[70px] rounded-[16px] mb-[72px]">
@@ -9,7 +8,9 @@ const FeaturesPage = () => {
 
         {/* Overview */}
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Overview</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+            Overview
+          </h2>
           <p className="text-gray-600 text-lg">
             Our EMI (Equated Monthly Installment) Calculator is a robust and
             user-friendly tool built with the modern Vite + React framework. It
@@ -33,7 +34,8 @@ const FeaturesPage = () => {
               total interest, and total payment.
             </li>
             <li>
-              <strong>Comprehensive Loan Insights:</strong> EMI breakdown, payment schedules, and amortization charts.
+              <strong>Comprehensive Loan Insights:</strong> EMI breakdown,
+              payment schedules, and amortization charts.
             </li>
             <li>
               <strong>Customizable Parameters:</strong> Adjustable loan sliders
@@ -60,7 +62,9 @@ const FeaturesPage = () => {
 
         {/* Benefits */}
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Benefits</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+            Benefits
+          </h2>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
             <li>Simplifies the loan planning process.</li>
             <li>Empowers users to make informed financial decisions.</li>

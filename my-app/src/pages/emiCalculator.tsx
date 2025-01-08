@@ -9,7 +9,7 @@ const App: React.FC = () => {
       <LoanCalculator />
       <InterestRateList />
       <FaqSection />
-      <Review/>
+      <Review />
     </div>
   );
 };
