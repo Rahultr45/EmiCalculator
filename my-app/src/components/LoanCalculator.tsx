@@ -10,16 +10,19 @@ import {
   Tooltip,
 } from "recharts";
 
+
 const LoanCalculator = () => {
   const [loanAmount, setLoanAmount] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [loanDuration, setLoanDuration] = useState("");
   const [durationType, setDurationType] = useState("years"); // New state for duration type
+
   const [results, setResults] = useState({
     monthlyPayment: "",
     totalInterest: "",
     totalPayment: "",
   });
+
 
   const roundNumber = (num: number): number => {
     return Math.round(num);
@@ -29,6 +32,7 @@ const LoanCalculator = () => {
     if (value === "" || value === "Invalid input") return value as string;
     const numValue = typeof value === "string" ? parseFloat(value) : value;
     return `₹${roundNumber(numValue).toLocaleString()}`;
+
   };
 
   const calculateLoan = () => {
@@ -42,12 +46,14 @@ const LoanCalculator = () => {
         : parseFloat(loanDuration);
 
     if (!isNaN(principal) && !isNaN(annualRate) && !isNaN(months)) {
+
       const monthlyPayment =
         (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
         (Math.pow(1 + monthlyRate, months) - 1);
 
       const totalPayment = monthlyPayment * months;
       const totalInterest = totalPayment - principal;
+
 
       setResults({
         monthlyPayment: roundNumber(monthlyPayment).toString(),
@@ -68,6 +74,7 @@ const LoanCalculator = () => {
     setInterestRate("");
     setLoanDuration("");
     setDurationType("years");
+
     setResults({
       monthlyPayment: "",
       totalInterest: "",
@@ -91,6 +98,7 @@ const LoanCalculator = () => {
           value: 0,
         },
       ];
+
     }
 
     return [
@@ -98,11 +106,13 @@ const LoanCalculator = () => {
         name: "Principal Amount",
         value: roundNumber(parseFloat(loanAmount)),
         class: "font-bold",
+
       },
       {
         name: "Total Interest",
         value: roundNumber(parseFloat(results.totalInterest)),
         class: "font-bold",
+
       },
     ];
   };
@@ -136,6 +146,7 @@ const LoanCalculator = () => {
               <label className="text-sm font-medium text-[#1D2D35]">
                 Interest Rate (%)
               </label>
+
               <input
                 type="number"
                 placeholder="Enter interest rate"
@@ -181,6 +192,7 @@ const LoanCalculator = () => {
                 variant="outline"
                 className="text-[16px] flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]"
               >
+
                 Reset
               </Button>
             </div>
@@ -206,6 +218,7 @@ const LoanCalculator = () => {
                 <span className="font-medium text-[16px] text-[#1D2D35]">
                   Total Repayment:
                 </span>
+
                 <span className="font-bold text-blue-600">
                   {formatCurrency(results.totalPayment)}
                 </span>
@@ -217,6 +230,7 @@ const LoanCalculator = () => {
             <h3 className="text-lg font-semibold mb-4 text-[#1D2D35]">
               Loan Portfolio
             </h3>
+
             <div className="w-full h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -225,6 +239,7 @@ const LoanCalculator = () => {
                     cx="50%"
                     cy="50%"
                     innerRadius={50}
+
                     outerRadius={100}
                     fill="#8884d8"
                     paddingAngle={5}
@@ -247,6 +262,7 @@ const LoanCalculator = () => {
                       borderRadius: "8px",
                     }}
                     formatter={(value) => `₹ ${value.toLocaleString()}`}
+
                   />
                   <Legend />
                 </PieChart>

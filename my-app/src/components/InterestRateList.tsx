@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 const InterestRateList: React.FC = () => {
   const [rates, setRates] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:4000/api/interestRates")
+
       .then((response) => response.json())
       .then((data) => setRates(data));
   }, []);
@@ -19,5 +19,5 @@ const InterestRateList: React.FC = () => {
     </ul>
   );
 };
-
 export default InterestRateList;
+
