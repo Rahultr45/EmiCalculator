@@ -172,14 +172,14 @@ const LoanCalculator = () => {
               <Button
                 onClick={calculateLoan}
                 variant="outline"
-                className="flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]"
+                className="text-[16px] flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]"
               >
                 Calculate
               </Button>
               <Button
                 onClick={refreshInputs}
                 variant="outline"
-                className="flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]"
+                className="text-[16px] flex-1 text-[#34835a] hover:text-[white] border-[#34835a] bg-gray-100 hover:bg-[#27ae60]"
               >
                 Reset
               </Button>

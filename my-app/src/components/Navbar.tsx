@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
       <Link to="/loanBasics"></Link>
       <Link to="/emiTips"></Link>
       <Link to="/tryEmiTips"></Link>
+      <Link to="/investing"></Link>
     </nav>
   )
 }

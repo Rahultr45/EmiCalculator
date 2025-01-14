@@ -7,6 +7,7 @@ import Features from "./pages/features.tsx";
 import LoanBasics from "./components/blog/loanBasics.tsx";
 import EmiTips from "./components/blog/emiTips.tsx";
 import PersonalFinance from "./components/blog/personalFinance.tsx";
+import Investing from "./components/blog/investing.tsx";
 import Navbar from "./components/Navbar";
 import Tips from "./components/tryEmiTips.tsx";
 import NotFound from "./pages/404";
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/emiTips" element={<EmiTips />} />
         <Route path="/personalFinance" element={<PersonalFinance />} />
         <Route path="/tryEmiTips" element={<Tips />} />
+        <Route path="/investing" element={<Investing />} />
       </Routes>
     </Router>
   );

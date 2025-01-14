@@ -94,7 +94,7 @@ const BlogPage = () => {
     { id: "loans", name: "Loan Basics", href: "/loanBasics" },
     { id: "tips", name: "EMI Tips", href: "/emiTips" },
     { id: "finance", name: "Personal Finance", href: "/personalFinance" },
-    { id: "investing", name: "Investing" },
+    { id: "investing", name: "Investing", href: "/investing" },
   ];
 
   const featuredPosts = [
@@ -172,11 +172,11 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       {/* Header Section */}
-      <div className="bg-white shadow-sm">
+      <div className=" shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center my-[24px]">
             <h1 className="text-3xl font-bold text-gray-900">
               EMI Knowledge Hub
             </h1>

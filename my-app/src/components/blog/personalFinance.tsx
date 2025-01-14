@@ -100,9 +100,9 @@ const PersonalFinancePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen ">
+      <div className=" shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-[24px]">
           <a
             href="/blog"
             className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6"
@@ -110,12 +110,14 @@ const PersonalFinancePage = () => {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Blog
           </a>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mt-[50px]">
+          <h2 className="md:text-[44px] text-[28px] font-bold text-gray-900 mb-4">
             Personal Finance Management
-          </h1>
+          </h2>
           <p className="text-lg text-gray-600">
             Master your money with expert financial planning strategies
           </p>
+          </div>
         </div>
       </div>
 

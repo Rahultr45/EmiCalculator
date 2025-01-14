@@ -37,10 +37,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const LoanBasicsPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header Section */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className=" shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mt-[24px]">
           <a
             href="/blog"
             className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6"
@@ -48,12 +48,14 @@ const LoanBasicsPage = () => {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Blog
           </a>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <div className="text-center mt-[50px]">
+          <h2 className="md:text-[44px] text-[28px] font-bold text-gray-900">
             Understanding Loan Basics
-          </h1>
+          </h2>
           <p className="mt-2 text-lg text-gray-600">
             Everything you need to know about loans and EMIs
           </p>
+          </div>
         </div>
       </div>
 
