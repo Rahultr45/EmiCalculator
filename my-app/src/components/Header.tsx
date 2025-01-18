@@ -72,7 +72,7 @@ export default function Example() {
             <span className="sr-only">Loan Management</span>
             <img
               alt=""
-              src="src/assets/logo-icon.png"
+              src="/assets/logo-icon.png"
               className="h-14 w-auto"
 
             />
