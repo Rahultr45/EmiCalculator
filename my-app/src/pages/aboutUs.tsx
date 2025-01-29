@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="md:max-w-[70%] max-w-[90%] bg-[#ecfff4] border-[#27ae60]  border-[1px] mx-auto bg-transparent/10  px-6 py-12 mt-[70px] rounded-[16px] mb-[72px]">
+    <div className="md:max-w-[70%] max-w-[90%] bg-black bg-opacity-10 backdrop-blur border-[#27ae60]  border-[1px] mx-auto bg-transparent/10  px-6 py-12 mt-[70px] rounded-[16px] mb-[72px]">
       <h1 className="text-3xl font-bold mb-6">About Our EMI Calculator</h1>
 
       <section className="mb-8">

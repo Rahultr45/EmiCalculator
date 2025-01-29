@@ -62,7 +62,7 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#dcefe5] rounded-[6px] shadow-sm">
+    <header className="sticky top-0 z-50 rounded-[6px] shadow-sm">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"

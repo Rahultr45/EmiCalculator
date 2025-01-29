@@ -58,15 +58,15 @@ const FAQPage = () => {
   };
 
   return (
-    <div className="container mx-auto md:max-w-[70%] max-w-[95%] my-[120px]">
+    <div className="container mx-auto md:max-w-[70%] max-w-[95%] my-[120px] ">
       <CardTitle className="text-center text-[#1D2D35] mb-[50px]">
         <h3>We're Here to Help [FAQ]</h3>
       </CardTitle>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="border rounded-lg w-full overflow-hidden">
+          <div key={index} className="border-gray-400 border-[1px] rounded-lg w-full overflow-hidden">
             <button
-              className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors duration-200"
+              className="w-full px-6 py-4 text-left  bg-black bg-opacity-30 backdrop-blur-md flex justify-between items-center transition-colors duration-200"
               onClick={() => toggleFAQ(index)}
             >
               <span className="font-medium text-gray-900">{faq.question}</span>
@@ -84,8 +84,8 @@ const FAQPage = () => {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="px-6 py-4 bg-white">
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div className="px-6 py-4  bg-black bg-opacity-30 backdrop-blur-md">
+                  <p className="text-black">{faq.answer}</p>
                 </div>
               </div>
             </div>

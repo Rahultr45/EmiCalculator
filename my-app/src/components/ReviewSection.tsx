@@ -129,18 +129,18 @@ Date: ${review.date}`,
     <Card className="w-full md:max-w-[70%] max-w-[95%] mb-[72px] mx-auto">
       <div className=" md:p-[16px] p-[10px]">
         <div className="flex justify-center items-center mb-8">
-          <h3 className="text-2xl font-semibold text-center text-[#1D2D35]">
+          <h3 className="text-2xl font-semibold text-center text-[black]">
             Leave A Review
           </h3>
         </div>
 
         <form
           onSubmit={handleReviewSubmit}
-          className=" bg-white rounded-lg shadow-sm"
+          className=" bg-gray-400 bg-opacity-30 backdrop-blur-md rounded-lg shadow-sm"
         >
           <div className="space-y-4 p-[8px] ">
             <div>
-              <label className="block text-sm font-medium text-[#1D2D35] mb-[12px]">
+              <label className="block text-sm font-medium text-[black] mb-[12px]">
                 Your Name
               </label>
               <input
@@ -150,12 +150,12 @@ Date: ${review.date}`,
                   setNewReview({ ...newReview, name: e.target.value })
                 }
                 required
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 bg-black bg-opacity-30 backdrop-blur-md border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#1D2D35] mb-[12px]">
+              <label className="block text-sm font-medium text-[black] mb-[12px]">
                 Your Review
               </label>
               <textarea
@@ -165,12 +165,12 @@ Date: ${review.date}`,
                 }
                 required
                 rows={4}
-                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 bg-black bg-opacity-30 backdrop-blur-md border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Share your experience with our EMI calculator"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#1D2D35] mb-[12px]">
+              <label className="block text-sm font-medium text-[black] mb-[12px]">
                 Rating
               </label>
               <div className="flex gap-2">

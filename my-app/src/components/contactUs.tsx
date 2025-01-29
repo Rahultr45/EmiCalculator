@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="mt-16 bg-[#ecfff4] border-[#27ae60]  border-[2px] p-6 text-gray-900 rounded-lg">
+    <div className="mt-16 bg-black bg-opacity-30 backdrop-blur-md border-gray-400  border-[1px] p-6 text-gray-900 rounded-lg">
     <div className="max-w-2xl mx-auto text-center">
       <h2 className="text-2xl font-bold mb-4 text-gray-900">
         Stay Updated with EMI Tips

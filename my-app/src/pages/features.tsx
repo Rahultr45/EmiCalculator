@@ -1,6 +1,6 @@
 const FeaturesPage = () => {
   return (
-    <div className="md:max-w-[70%] max-w-[90%] bg-[#ecfff4] border-[#27ae60]  border-[1px] mx-auto bg-transparent/10  px-6 py-12 mt-[70px] rounded-[16px] mb-[72px]">
+    <div className="md:max-w-[70%] max-w-[90%] bg-black bg-opacity-10 backdrop-blur border-[#27ae60]  border-[1px] mx-auto bg-transparent/10  px-6 py-12 mt-[70px] rounded-[16px] mb-[72px]">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
           Features of Our EMI Calculator
